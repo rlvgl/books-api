@@ -22,5 +22,5 @@ app.get('/', (req, res) => {
 	res.send('Welcome to the goodreads api');
 });
 
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 app.listen(PORT, console.log(`Server has started on port ${PORT}`));

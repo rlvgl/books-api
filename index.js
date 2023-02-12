@@ -24,8 +24,15 @@ app.use(helmet());
 app.use('/api', router);
 
 app.get('/', (req, res) => {
-	res.send('Welcome to the goodreads api');
+	res.send(
+		'Welcome to the goodreads api. please go to /api/all to view a list of all books'
+	);
 });
 
-const PORT = process.env.PORT || 8000;
+let PORT = process.env.PORT || 8000;
+
+if (process.env.NODE_ENV === 'production') {
+	PORT = `0.0.0.0:${process.env.PORT}`;
+}
+
 app.listen(PORT, console.log(`Server has started on port ${PORT}`));

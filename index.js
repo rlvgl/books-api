@@ -31,8 +31,4 @@ app.get('/', (req, res) => {
 
 let PORT = process.env.PORT || 8000;
 
-if (process.env.NODE_ENV === 'production') {
-	PORT = `0.0.0.0:$${process.env.PORT}`;
-}
-
 app.listen(PORT, console.log(`Server has started on port ${PORT}`));

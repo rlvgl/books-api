@@ -1,6 +1,8 @@
 import express from 'express';
 import router from './routers/getRouter.js';
 import dotenv from 'dotenv';
+import compression from 'compression';
+import helmet from 'helmet';
 
 dotenv.config();
 
@@ -16,6 +18,9 @@ dotenv.config();
 */
 
 const app = express();
+app.use(compression());
+app.use(helmet());
+
 app.use('/api', router);
 
 app.get('/', (req, res) => {
